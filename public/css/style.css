@@ -1,0 +1,337 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  background-color: #333;
+  padding: 10px 0;
+}
+
+.nav-item {
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav-item.active {
+  background-color: #555;
+}
+
+
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+
+.gallery-item {
+  width: 200px;
+  text-align: center;
+}
+
+.gallery-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+
+.delete-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.delete-button:hover {
+  background-color: darkred;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form input[type="file"] {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #444;
+}
+
+.main-item {
+  display: none;
+  width: 100%;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.main-item.active {
+  display: block;
+}
+
+
+.add-team-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.add-team-form input, .add-team-form textarea {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-team-form button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-team-form button:hover {
+  background-color: #45a049;
+}
+
+
+.team-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.team-card {
+  width: calc(33.33% - 20px);
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.team-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.team-card h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.team-card p {
+  font-size: 1em;
+  color: #555;
+}
+
+.team-card button {
+  padding: 10px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.team-card button:hover {
+  background-color: #e53935;
+}
+
+
+@media (max-width: 768px) {
+  .team-card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .team-card {
+    width: 100%;
+  }
+  }
+
+@media (max-width: 900px) {
+  .navbar {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .main {
+      flex-direction: column;
+  }
+  form {
+    width: 90%;
+}
+}
+
+@media (max-width: 500px) {
+  .nav-item {
+      font-size: 14px;
+  }
+
+  .main-item {
+      font-size: 14px;
+  }
+  form {
+    width: 100%;
+    padding: 15px;
+}
+
+form input[type="file"],
+form button {
+    width: 100%;
+}
+}
+
+.add-testimonial-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.add-testimonial-form input, .add-testimonial-form textarea {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-testimonial-form button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-testimonial-form button:hover {
+  background-color: #45a049;
+}
+
+
+.testimonial-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.testimonial-card {
+  width: calc(33.33% - 20px);
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.testimonial-card h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.testimonial-card p {
+  font-size: 1em;
+  color: #555;
+}
+
+.testimonial-card button {
+  padding: 10px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.testimonial-card button:hover {
+  background-color: #e53935;
+}
+
+
+@media (max-width: 768px) {
+  .testimonial-card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonial-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 300px) {
+  .nav-item {
+      font-size: 12px;
+  }
+
+  .main-item {
+      font-size: 12px;
+  }
+}

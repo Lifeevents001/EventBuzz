@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Manage Data</title>
+</head>
+<body>
+  <div class="navbar">
+    <p class="nav-item active" data-target="gallery">Gallery</p>
+    <p class="nav-item" data-target="services">Services</p>
+    <p class="nav-item" data-target="slider">Slider</p>
+    <p class="nav-item" data-target="teams">Teams</p>
+    <p class="nav-item" data-target="testimonials">Testimonials</p>
+  </div>
+  
+  <div class="main">
+    <div id="gallery" class="main-item active">
+      <form action="/upload-gallery" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <button type="submit">Upload</button>
+      </form>
+      <br>
+      <h2>Gallery</h2>
+    <div class="gallery-container">
+        <% galleries.forEach(gallery => { %>
+            <div class="gallery-item">
+                <img src="<%= gallery.image %>" alt="Gallery Image" class="gallery-image">
+                <form action="/delete-gallery" method="POST" class="delete-form">
+                    <input type="hidden" name="imageId" value="<%= gallery._id %>">
+                    <button type="submit" class="delete-button">Delete</button>
+                </form>
+            </div>
+        <% }) %>
+    </div>
+
+    </div> 
+    <div id="services" class="main-item">
+
+      <form action="/upload-service" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <button type="submit">Upload</button>
+      </form>
+      <br>
+      <h2>Slides</h2>
+    <div class="gallery-container">
+        <% services.forEach(gallery => { %>
+            <div class="gallery-item">
+                <img src="<%= gallery.image %>" alt="Gallery Image" class="gallery-image">
+                <form action="/delete-service" method="POST" class="delete-form">
+                    <input type="hidden" name="imageId" value="<%= gallery._id %>">
+                    <button type="submit" class="delete-button">Delete</button>
+                </form>
+            </div>
+        <% }) %>
+
+    </div>
+    </div>
+    <div id="slider" class="main-item">
+      <form action="/upload-slide" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <button type="submit">Upload</button>
+      </form>
+      <br>
+      <h2>Slides</h2>
+    <div class="gallery-container">
+        <% sliders.forEach(gallery => { %>
+            <div class="gallery-item">
+                <img src="<%= gallery.image %>" alt="Gallery Image" class="gallery-image">
+                <form action="/delete-slide" method="POST" class="delete-form">
+                    <input type="hidden" name="imageId" value="<%= gallery._id %>">
+                    <button type="submit" class="delete-button">Delete</button>
+                </form>
+            </div>
+        <% }) %>
+    </div>
+   </div>
+
+    <div id="teams" class="main-item">
+      
+   <form action="/add-team" method="POST" enctype="multipart/form-data">
+  <div class="add-team-form">
+    <input type="file" name="image" required>
+    <input type="text" name="name" placeholder="Team Member Name" required>
+    <input type="text" name="post" placeholder="Post" required>
+    <textarea name="text" placeholder="Description" required></textarea>
+    <button type="submit">Add Team Member</button>
+  </div>
+</form>
+
+
+<div class="team-container">
+  <% teams.forEach(team => { %>
+    <div class="team-card">
+      <img src="<%= team.image %>" alt="<%= team.name %>">
+      <h3><%= team.name %></h3>
+      <p><strong>Post:</strong> <%= team.post %></p>
+      <p><%= team.text %></p>
+      
+      <form action="/delete-team" method="POST">
+        <input type="hidden" name="teamId" value="<%= team._id %>">
+        <button type="submit">Delete</button>
+      </form>
+    </div>
+  <% }) %>
+</div>
+</div>
+
+    <div id="testimonials" class="main-item">
+      
+<form action="/add-testimonial" method="POST" enctype="multipart/form-data">
+  <div class="add-testimonial-form">
+    <input type="file" name="image" required>
+    <input type="text" name="name" placeholder="Testimonial Name" required>
+    <input type="text" name="location" placeholder="Location" required>
+    <textarea name="text" placeholder="Testimonial Text" required></textarea>
+    <button type="submit">Add Testimonial</button>
+  </div>
+</form>
+
+
+<div class="testimonial-container">
+  <% testimonials.forEach(testimonial => { %>
+    <div class="testimonial-card">
+      <img src="<%= testimonial.image %>" alt="<%= testimonial.name %>">
+      <h3><%= testimonial.name %></h3>
+      <p><strong>Location:</strong> <%= testimonial.location %></p>
+      <p><%= testimonial.text %></p>
+      
+      <form action="/delete-testimonial" method="POST">
+        <input type="hidden" name="testimonialId" value="<%= testimonial._id %>">
+        <button type="submit">Delete</button>
+      </form>
+    </div>
+  <% }) %>
+</div>
+
+    </div>
+
+</div>
+
+  <script>
+    const navItems = document.querySelectorAll('.nav-item');
+    const mainItems = document.querySelectorAll('.main-item');
+
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const target = item.getAttribute('data-target');
+
+            
+            navItems.forEach(nav => nav.classList.remove('active'));
+            mainItems.forEach(main => main.classList.remove('active'));
+
+            
+            item.classList.add('active');
+            document.getElementById(target).classList.add('active');
+        });
+    });
+  </script>
+</body>
+</html>
