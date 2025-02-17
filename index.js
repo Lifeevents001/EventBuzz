@@ -258,7 +258,7 @@ app.post('/delete-testimonial', async (req, res) => {
 });
 
 
-const url = `https://www.indiangame.in/`;
+const url = `https://eventbuzz.onrender.com/`;
 const interval = 30000;
 
 function reloadWebsite() {
@@ -277,4 +277,5 @@ setInterval(reloadWebsite, interval);
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
+  
 });
